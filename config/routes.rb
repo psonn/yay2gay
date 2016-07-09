@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :blogs
   devise_for :users
-  resources :news
   root 'pages#home'
   get "about" => "pages#about"
 
