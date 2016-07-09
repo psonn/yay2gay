@@ -1,0 +1,8 @@
+      <table class="table table-hover table-bordered">
+      	<caption class="text-left">Recent updates</caption>
+      	   <% @blogs.each do |blog| %>
+      	     <tbody>
+	           <td><%= link_to blog.title, blog %></td>
+	         </tbody>
+	       <% end %>
+	  </table>
