@@ -2,7 +2,14 @@
 <div class="jumbotron center">
 <h1>Blogs</h1>
 
-
+<% @blogs.each do |blog| %>
+  <% if blog.highlighted? %>
+    <div class="well">
+      <h1><%= blog.title %></h1>
+      <p><%= blog.body %></p>
+    </div>
+  <% end %>
+<% end %>
 
 <table class="table table-hover">
   <thead>
@@ -16,6 +23,7 @@
 
   <tbody>
     <% @blogs.each do |blog| %>
+      <% unless blog.highlighted %>
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.body %></td>
@@ -26,13 +34,14 @@
         <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 <% if user_signed_in? %>
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary' %>
 <% end %>
 
 </div>

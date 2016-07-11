@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709202502) do
+ActiveRecord::Schema.define(version: 20160711205910) do
 
   create_table "blogs", force: :cascade do |t|
     t.text     "body"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.boolean  "highlighted"
   end
 
   add_index "blogs", ["title"], name: "index_blogs_on_title"
